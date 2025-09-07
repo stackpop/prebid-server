@@ -1,0 +1,67 @@
+{
+  "mockBidRequest": {
+    "id": "req-1",
+    "cur": ["USD"],
+    "imp": [
+      {
+        "id": "imp-1",
+        "banner": { "w": 300, "h": 250 },
+        "ext": {
+          "bidder": {
+            "endpoint": "http://test.mocktioneer/openrtb2/auction"
+          }
+        }
+      }
+    ],
+    "site": { "page": "https://example.com" },
+    "device": { "ua": "Mozilla/5.0", "ip": "127.0.0.1" }
+  },
+  "httpCalls": [
+    {
+      "expectedRequest": {
+        "uri": "http://test.mocktioneer/openrtb2/auction",
+        "impIDs": ["imp-1"],
+        "body": {
+          "id": "req-1",
+          "cur": ["USD"],
+          "imp": [
+            {
+              "id": "imp-1",
+              "banner": { "w": 300, "h": 250 }
+            }
+          ],
+          "site": { "page": "https://example.com" },
+          "device": { "ua": "Mozilla/5.0", "ip": "127.0.0.1" }
+        }
+      },
+      "mockResponse": {
+        "status": 200,
+        "body": {
+          "id": "req-1",
+          "cur": "USD",
+          "seatbid": [
+            {
+              "seat": "mocktioneer",
+              "bid": [
+                { "id": "b1", "impid": "imp-1", "price": 1.23, "adm": "<div>ad</div>", "w": 300, "h": 250, "adomain": ["example.com"], "crid": "mock-crid" }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "expectedBidResponses": [
+    {
+      "currency": "USD",
+      "bids": [
+        {
+          "seat": "",
+          "type": "banner",
+          "bid": { "id": "b1", "impid": "imp-1", "price": 1.23, "adm": "<div>ad</div>", "w": 300, "h": 250, "adomain": ["example.com"], "crid": "mock-crid" }
+        }
+      ]
+    }
+  ]
+}
+

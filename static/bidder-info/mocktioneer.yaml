@@ -1,0 +1,17 @@
+endpoint: "https://mocktioneer.edgecompute.app/openrtb2/auction"
+maintainer:
+  email: "dev@example.com"
+capabilities:
+  app:
+    mediaTypes:
+      - banner
+  site:
+    mediaTypes:
+      - banner
+
+# Notes:
+# - Optional parameter `bid` (number) may be provided via:
+#   * Prebid.js: params.bid
+#   * Prebid Server: imp[i].ext.prebid.bidder.mocktioneer.bid
+#   When set, mocktioneer uses it as the bid price (seatbid.bid[].price)
+#   and echoes it in seatbid.bid[].ext.mocktioneer.bid for debugging.

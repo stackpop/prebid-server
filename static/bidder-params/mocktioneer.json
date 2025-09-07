@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Mocktioneer Adapter Params",
+  "description": "Schema for the Mocktioneer mock bidder. All fields optional.",
+  "type": "object",
+  "properties": {
+    "endpoint": {
+      "type": "string",
+      "description": "Optional override for bidder endpoint",
+      "minLength": 1
+    },
+    "bid": {
+      "type": "number",
+      "description": "Optional decimal CPM to echo back; also used as bid price when set"
+    }
+  },
+  "additionalProperties": true
+}
